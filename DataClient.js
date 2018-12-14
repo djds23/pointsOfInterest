@@ -32,11 +32,13 @@ class LinkNYCClient {
           let address = element["street_address"]
           let status = element["link_installation_status"]
           let coord = element["location"]["coordinates"]
+          let latitude = coord[1]
+          let longitude = coord[0]
           return new Item(
             address, 
             status, 
-            coord["latitude"], 
-            coord["longitude"],
+            latitude, 
+            longitude,
             "https://link.nyc/faq.html"
           )
         })
