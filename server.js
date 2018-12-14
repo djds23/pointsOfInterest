@@ -14,13 +14,13 @@ const DataClient = require('./DataClient.js');
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get('/api/v1/points-of-interest', function(request, response) {
+app.get('/api/v1/points-of-interest', function(req, resp) {
   let URI = DataClient.dataURI("3ktt-gd74")
   console.log(URI)
-  request('http://www.google.com', function (error, dataResponse, body) {
+  request.get('http://www.google.com', function (error, dataResponse, body) {
     if (!error && dataResponse.statusCode == 200) {
       console.log(body) // Show the HTML for the Google homepage.
-      response.json(body)
+      resp.json(body)
     } else {
       console.warn(error);
     }
