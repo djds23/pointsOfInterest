@@ -24,7 +24,7 @@ class LinkNYCClient {
     this.dataSetID = "3ktt-gd74"
   }
   
-  function find(callback) {
+  find(callback) {
     request(dataURI(this.dataSetID), function (error, response, body) {
       if (!error && response.statusCode == 200) {
         let obj = JSON.parse(body)
