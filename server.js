@@ -20,14 +20,11 @@ app.get('/api/v1/points-of-interest', function(req, resp) {
   request(URI, function (error, dataResponse, body) {
     if (!error && dataResponse.statusCode == 200) {
       console.log(body) // Show the HTML for the Google homepage.
-      resp.json(body)
+      resp.json(JSON.parse(body))
     } else {
       console.warn(error);
     }
-});
-
-// suppress the direct output of the call. you can expand the result below
-
+  });
 });
 
 // listen for requests :)
