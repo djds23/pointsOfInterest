@@ -18,6 +18,7 @@ app.get('/api/v1/points-of-interest', function(request, response) {
   let URI = DataClient.dataURI("3ktt-gd74")
   console.log(URI)
   request.get("3ktt-gd74", (error, response, body) => {
+    console.log("Callback called!")
     response.json(body);
   })
 });
