@@ -17,7 +17,7 @@ app.get('/api/v1/points-of-interest', function(request, response) {
   let resource = "https://data.cityofnewyork.us/resource/"
   let extension = ".json"
   let linkNYC = "3ktt-gd74"
-  request(resource + linkNYC + resource, (error, response, body) => {
+  request.get(resource + linkNYC + resource, (error, response, body) => {
     response.json(body);
   })
 });
