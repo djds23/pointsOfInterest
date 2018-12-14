@@ -17,10 +17,17 @@ app.use(express.static('public'));
 app.get('/api/v1/points-of-interest', function(request, response) {
   let URI = DataClient.dataURI("3ktt-gd74")
   console.log(URI)
-  request.get("3ktt-gd74", (error, response, body) => {
-    console.log("Callback called!")
-    response.json(body);
-  })
+  request('http://www.google.com', function (error, dataResponse, body) {
+    if (!error && dataResponse.statusCode == 200) {
+      console.log(body) // Show the HTML for the Google homepage.
+      response.json(body)
+    } else {
+      console.warn(error);
+    }
+});
+
+// suppress the direct output of the call. you can expand the result below
+
 });
 
 // listen for requests :)
