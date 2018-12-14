@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.get('/api/v1/points-of-interest', function(req, resp) {
   let URI = DataClient.dataURI("3ktt-gd74")
   console.log(URI)
-  request.get('http://www.google.com', function (error, dataResponse, body) {
+  request(URI, function (error, dataResponse, body) {
     if (!error && dataResponse.statusCode == 200) {
       console.log(body) // Show the HTML for the Google homepage.
       resp.json(body)
