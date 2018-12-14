@@ -14,17 +14,10 @@ const DataClient = require('./DataClient.js');
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get('/api/v1/points-of-interest', function(req, resp) {
-  let URI = DataClient.dataURI("3ktt-gd74")
-  console.log(URI)
-  request(URI, function (error, dataResponse, body) {
-    if (!error && dataResponse.statusCode == 200) {
-      let obj = JSON.parse(body)
-      console.log(obj)
-      resp.json(obj)
-    } else {
-      console.warn(error);
-    }
+app.get('/api/v1/points-of-interest', function(request, response) {
+  let client = new DataClient.LinkNYCClient()
+  client.find((client) => {
+    response.json(client.items)
   });
 });
 
