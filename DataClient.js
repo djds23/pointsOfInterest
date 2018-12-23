@@ -1,5 +1,3 @@
-const request = require('request');
-
 function dataURI(dataSetID) {
   let resource = "https://data.cityofnewyork.us/resource/"
   let extension = ".json"
@@ -20,12 +18,13 @@ class Item {
 
 class LinkNYCClient {
 
-  constructor() {
+  constructor(request) {
     this.dataSetID = "3ktt-gd74"
+    this.request = request
   }
   
   find(callback) {
-    request(dataURI(this.dataSetID), function (error, response, body) {
+    this.request(dataURI(this.dataSetID), (error, response, body) => {
       if (!error && response.statusCode == 200) {
         let obj = JSON.parse(body)
         this.items = obj.map((element) => {
@@ -42,10 +41,11 @@ class LinkNYCClient {
             "https://link.nyc/faq.html"
           )
         })
-        callback(this)
       } else {
+        this.items = []
         console.warn(error);
       }
+      callback(this)
     });
   }
   

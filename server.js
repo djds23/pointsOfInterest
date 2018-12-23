@@ -14,8 +14,8 @@ const DataClient = require('./DataClient.js');
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get('/api/v1/points-of-interest', function(request, response) {
-  let client = new DataClient.LinkNYCClient()
+app.get('/api/v1/points-of-interest', function(req, response) {
+  let client = new DataClient.LinkNYCClient(request)
   client.find((client) => {
     response.json(client.items)
   });
