@@ -17,5 +17,5 @@ function it(message, body) {
   return runTest()
 }
 
-exports.describe = describe
-exports.it = it
+module.exports.it = it
+module.exports.describe = describe
