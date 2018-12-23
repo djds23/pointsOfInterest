@@ -14,7 +14,7 @@ class Item {
       latitude: lat,
       longitude: long
     }
-    this.url
+    this.url = url
   }
 }
 
