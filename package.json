@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "request": "2.88.0"
+    "request": "2.88.0",
+    "affirmer": "git@github.com:djds23/affirmer.js.git#d66ccd0d43d6f78e4c089d532f38ff7b94953e19"
   },
   "engines": {
     "node": "8.x"

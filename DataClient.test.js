@@ -1,5 +1,5 @@
-const describe = require("./affirmer.js").describe;
-const it = require("./affirmer.js").it;
+const describe = require("affirmer").describe;
+const it = require("affirmer").it;
 const LinkNYCClient = require('./DataClient.js').LinkNYCClient;
 
 let mockSingleElementBody = `[
