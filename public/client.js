@@ -5,7 +5,7 @@ console.log('hello world :o');
 
 // our default array of dreams
 const dreams = [
-  'Find and count some sheep',
+  'items and count some sheep',
   'Climb a really tall mountain',
   'Wash the dishes'
 ];
@@ -36,7 +36,7 @@ dreamsForm.onsubmit = function(event) {
   dreams.push(dreamInput.value);
   appendNewDream(dreamInput.value);
 
-  // reset form 
+  // reset form
   dreamInput.value = '';
   dreamInput.focus();
 };
